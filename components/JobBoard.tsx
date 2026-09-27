@@ -2,9 +2,21 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { departments, engagementTypes, jobComp, jobs, levels, type Engagement, type Job } from "@/lib/jobs";
+import { useLanguage } from "@/components/LanguageProvider";
+import {
+  departments,
+  engagementTypes,
+  jobComp,
+  jobs,
+  levels,
+  type Engagement,
+  type Job,
+} from "@/lib/jobs";
+import { localizeDepartment, localizeJob, localizeLevel } from "@/lib/i18n/localize-job";
 
 export function JobBoard() {
+  const { messages, locale } = useLanguage();
+  const t = messages.careers;
   const [department, setDepartment] = useState<string>("All");
   const [level, setLevel] = useState<string>("All");
   const [engagement, setEngagement] = useState<string>("All");
@@ -13,7 +25,8 @@ export function JobBoard() {
     return jobs.filter((job) => {
       const deptOk = department === "All" || job.department === department;
       const levelOk = level === "All" || job.level === level;
-      const engagementOk = engagement === "All" || job.engagements.includes(engagement as Engagement);
+      const engagementOk =
+        engagement === "All" || job.engagements.includes(engagement as Engagement);
       return deptOk && levelOk && engagementOk;
     });
   }, [department, level, engagement]);
@@ -34,34 +47,39 @@ export function JobBoard() {
     return map;
   }, []);
 
+  const engagementLabel = (name: string) => {
+    if (name === "Full-time") return t.fullTime;
+    if (name === "Part-time") return t.partTime;
+    if (name === "Advisory") return t.advisory;
+    return name;
+  };
+
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Department</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">{t.department}</p>
       <div className="mt-3 flex flex-wrap gap-2">
         <FilterChip
-          label={`All (${jobs.length})`}
+          label={`${t.all} (${jobs.length})`}
           active={department === "All"}
           onClick={() => setDepartment("All")}
         />
         {departments.map((name) => (
           <FilterChip
             key={name}
-            label={`${name} (${deptCounts.get(name) ?? 0})`}
+            label={`${localizeDepartment(name, locale)} (${deptCounts.get(name) ?? 0})`}
             active={department === name}
             onClick={() => setDepartment(name)}
           />
         ))}
       </div>
 
-      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-        Level
-      </p>
+      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-muted">{t.level}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <FilterChip label="All levels" active={level === "All"} onClick={() => setLevel("All")} />
+        <FilterChip label={t.allLevels} active={level === "All"} onClick={() => setLevel("All")} />
         {levels.map((name) => (
           <FilterChip
             key={name}
-            label={`${name} (${levelCounts.get(name) ?? 0})`}
+            label={`${localizeLevel(name, locale)} (${levelCounts.get(name) ?? 0})`}
             active={level === name}
             onClick={() => setLevel(name)}
           />
@@ -69,14 +87,18 @@ export function JobBoard() {
       </div>
 
       <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-        Engagement
+        {t.engagementFilter}
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <FilterChip label="All engagements" active={engagement === "All"} onClick={() => setEngagement("All")} />
+        <FilterChip
+          label={t.allEngagements}
+          active={engagement === "All"}
+          onClick={() => setEngagement("All")}
+        />
         {engagementTypes.map((name) => (
           <FilterChip
             key={name}
-            label={name}
+            label={engagementLabel(name)}
             active={engagement === name}
             onClick={() => setEngagement(name)}
           />
@@ -84,12 +106,12 @@ export function JobBoard() {
       </div>
 
       <p className="mt-6 text-sm text-muted">
-        {filtered.length} role{filtered.length === 1 ? "" : "s"}
+        {filtered.length} {t.rolesCount}
       </p>
 
       <div className="mt-4 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-card">
         {filtered.length === 0 ? (
-          <p className="px-5 py-8 text-sm text-muted">No roles in this filter. Clear a chip and try again.</p>
+          <p className="px-5 py-8 text-sm text-muted">{t.noMatches}</p>
         ) : (
           filtered.map((job) => <JobRow key={job.slug} job={job} />)
         )}
@@ -123,28 +145,44 @@ function FilterChip({
 }
 
 function JobRow({ job }: { job: Job }) {
+  const { messages, locale } = useLanguage();
+  const t = messages.careers;
+  const localized = localizeJob(job, locale);
   const comp = jobComp(job.salary);
+
+  const engagementLabel = (name: string) => {
+    if (name === "Full-time") return t.fullTime;
+    if (name === "Part-time") return t.partTime;
+    if (name === "Advisory") return t.advisory;
+    return name;
+  };
+
   return (
     <Link
       href={`/careers/${job.slug}`}
       className="flex flex-col gap-3 px-5 py-5 transition hover:bg-raised md:flex-row md:items-center md:justify-between"
     >
       <div>
-        <h2 className="font-display text-xl text-ink">{job.title}</h2>
-        <p className="mt-1 text-sm text-muted">{job.summary}</p>
+        <h2 className="font-display text-xl text-ink">{localized.title}</h2>
+        <p className="mt-1 text-sm text-muted">{localized.summary}</p>
         <p className="mt-2 text-xs text-muted">
-          FT {comp.fullTime}/yr · PT {comp.partTime} · Adv {comp.advisory}
+          {t.fullTime} {comp.fullTime}
+          {t.perYear} · {t.partTime} {comp.partTime} · {t.advisory} {comp.advisory}
         </p>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-2 text-xs">
-        <span className="rounded-full border border-line px-2.5 py-1 text-gold">{job.department}</span>
+        <span className="rounded-full border border-line px-2.5 py-1 text-gold">
+          {localized.department}
+        </span>
         {job.engagements.map((item) => (
           <span key={item} className="rounded-full border border-line px-2.5 py-1 text-muted">
-            {item}
+            {engagementLabel(item)}
           </span>
         ))}
-        <span className="rounded-full border border-line px-2.5 py-1 text-muted">{job.level}</span>
-        <span className="text-gold">Apply →</span>
+        <span className="rounded-full border border-line px-2.5 py-1 text-muted">
+          {localized.level}
+        </span>
+        <span className="text-gold">{t.applyArrow}</span>
       </div>
     </Link>
   );

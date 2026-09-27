@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/site";
+import { useLanguage } from "@/components/LanguageProvider";
 
-export function FaqList({ items = faqs }: { items?: typeof faqs }) {
+export function FaqList() {
+  const { messages } = useLanguage();
+  const items = messages.faqs;
   const [open, setOpen] = useState<number | null>(0);
 
   return (

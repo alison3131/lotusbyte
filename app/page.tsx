@@ -1,12 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { FaqList } from "@/components/FaqList";
+import { useLanguage } from "@/components/LanguageProvider";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceVisual } from "@/components/ServiceVisual";
 import { StatBar } from "@/components/StatBar";
 import { WorkVisual } from "@/components/WorkVisual";
 import { jobComp, jobs } from "@/lib/jobs";
+import { localizeJob } from "@/lib/i18n/localize-job";
 import {
   audiences,
   chains,
@@ -19,8 +23,10 @@ import {
 } from "@/lib/site";
 
 export default function HomePage() {
+  const { messages, locale } = useLanguage();
   const featured = projects[0];
   const rest = projects.slice(1, 4);
+  const featuredZh = messages.projectsBySlug[featured.slug];
 
   return (
     <>
@@ -32,64 +38,63 @@ export default function HomePage() {
         </div>
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
           <p className="rise text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
-            Web3 development and talent · {site.location}
+            {messages.home.eyebrow} · {messages.site.location}
           </p>
           <h1 className="rise rise-d1 mt-5 max-w-4xl font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
-            Blockchain products for clients.
-            <span className="gold-text"> Built and staffed.</span>
+            {messages.home.titleLead}
+            <span className="gold-text">{messages.home.titleAccent}</span>
           </h1>
-          <p className="rise rise-d2 mt-6 max-w-2xl text-lg leading-8 text-muted">
-            {site.name} designs, ships, and supports on-chain products for Web3 companies — and hires
-            the developers who do that work. You work through Lootrushs. The product belongs to the
-            client.
-          </p>
+          <p className="rise rise-d2 mt-6 max-w-2xl text-lg leading-8 text-muted">{messages.home.body}</p>
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
               className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft"
             >
-              Start a build
+              {messages.home.startBuild}
             </Link>
             <Link
               href="/work"
               className="rounded-full border border-line bg-bg/40 px-6 py-3 text-sm font-semibold text-ink backdrop-blur transition hover:border-gold/40 hover:text-gold"
             >
-              See case studies
+              {messages.home.seeCases}
             </Link>
             <Link href="/careers" className="text-sm text-gold hover:text-gold-soft">
-              Open roles →
+              {messages.home.openRolesArrow}
             </Link>
           </div>
           <div className="rise rise-d4 mt-16 grid gap-4 md:grid-cols-3">
-            {engagements.map((item) => (
-              <Link
-                key={item.slug}
-                href={item.href}
-                className="rounded-2xl border border-line bg-bg/50 p-5 backdrop-blur transition hover:border-gold/35"
-              >
-                <p className="text-[11px] uppercase tracking-[0.18em] text-gold">{item.n}</p>
-                <h2 className="mt-3 font-display text-2xl">{item.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-                <p className="mt-4 text-sm text-gold">{item.action} →</p>
-              </Link>
-            ))}
+            {engagements.map((item, index) => {
+              const localized = messages.engagements[index];
+              return (
+                <Link
+                  key={item.slug}
+                  href={item.href}
+                  className="rounded-2xl border border-line bg-bg/50 p-5 backdrop-blur transition hover:border-gold/35"
+                >
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-gold">{item.n}</p>
+                  <h2 className="mt-3 font-display text-2xl">{localized?.title ?? item.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-muted">{localized?.body ?? item.body}</p>
+                  <p className="mt-4 text-sm text-gold">{localized?.action ?? item.action} →</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       <StatBar
         items={[
-          { value: String(services.length), label: "capability areas" },
-          { value: String(chains.length), label: "chains we ship on" },
-          { value: String(projects.length), label: "published case studies" },
-          { value: String(jobs.length), label: "open seats on the bench" },
+          { value: String(services.length), label: messages.home.stats.capabilities },
+          { value: String(chains.length), label: messages.home.stats.chains },
+          { value: String(projects.length), label: messages.home.stats.cases },
+          { value: String(jobs.length), label: messages.home.stats.seats },
         ]}
       />
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-5 py-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-muted">
-            Networks we build on
+            {messages.home.networks}
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {chains.map((chain) => (
@@ -104,22 +109,27 @@ export default function HomePage() {
       <section className="border-t border-line bg-raised">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionHeading
-            eyebrow="Who we work with"
-            title="Route by your context."
-            body="Every path leads to a capability, a case study, or a hiring conversation — not a generic landing."
+            eyebrow={messages.home.audiencesEyebrow}
+            title={messages.home.audiencesTitle}
+            body={messages.home.audiencesBody}
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {audiences.map((audience) => (
-              <Link
-                key={audience.slug}
-                href={audience.href}
-                className="group rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-gold/35"
-              >
-                <h3 className="font-display text-2xl group-hover:text-gold-soft">{audience.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{audience.blurb}</p>
-                <p className="mt-5 text-sm text-gold">Continue →</p>
-              </Link>
-            ))}
+            {audiences.map((audience, index) => {
+              const localized = messages.audiences[index];
+              return (
+                <Link
+                  key={audience.slug}
+                  href={audience.href}
+                  className="group rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5 hover:border-gold/35"
+                >
+                  <h3 className="font-display text-2xl group-hover:text-gold-soft">
+                    {localized?.name ?? audience.name}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{localized?.blurb ?? audience.blurb}</p>
+                  <p className="mt-5 text-sm text-gold">{messages.common.continue}</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -127,32 +137,38 @@ export default function HomePage() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionHeading
-            eyebrow="Capabilities"
-            title="The stack a Web3 product actually needs."
-            body="Contracts, product UI, and infrastructure — staffed as one team through Lootrushs."
+            eyebrow={messages.home.capabilitiesEyebrow}
+            title={messages.home.capabilitiesTitle}
+            body={messages.home.capabilitiesBody}
             href="/services"
-            action="All services"
+            action={messages.home.allServices}
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="overflow-hidden rounded-2xl border border-line bg-card transition hover:-translate-y-0.5"
-              >
-                <ServiceVisual slug={service.slug} className="aspect-[16/10]" />
-                <div className="p-6">
-                  <span className="text-[11px] uppercase tracking-[0.16em] text-gold">{service.stack}</span>
-                  <h3 className="mt-3 font-display text-2xl">{service.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{service.blurb}</p>
-                  <ul className="mt-4 space-y-1.5 text-sm text-ink/80">
-                    {service.items.slice(0, 3).map((item) => (
-                      <li key={item}>· {item}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            ))}
+            {services.map((service) => {
+              const localized = messages.servicesBySlug[service.slug];
+              const name = locale === "zh" && localized ? localized.name : service.name;
+              const blurb = locale === "zh" && localized ? localized.blurb : service.blurb;
+              const items = locale === "zh" && localized ? localized.items : service.items;
+              return (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="overflow-hidden rounded-2xl border border-line bg-card transition hover:-translate-y-0.5"
+                >
+                  <ServiceVisual slug={service.slug} className="aspect-[16/10]" />
+                  <div className="p-6">
+                    <span className="text-[11px] uppercase tracking-[0.16em] text-gold">{service.stack}</span>
+                    <h3 className="mt-3 font-display text-2xl">{name}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted">{blurb}</p>
+                    <ul className="mt-4 space-y-1.5 text-sm text-ink/80">
+                      {items.slice(0, 3).map((item) => (
+                        <li key={item}>· {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -160,11 +176,11 @@ export default function HomePage() {
       <section className="border-t border-line bg-raised">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionHeading
-            eyebrow="Case studies"
-            title="Client products we delivered."
-            body="BrickFi and the rest of the bench are client work. We stay responsible for development, completion, and delivery."
+            eyebrow={messages.home.casesEyebrow}
+            title={messages.home.casesTitle}
+            body={messages.home.casesBody}
             href="/work"
-            action="View all work"
+            action={messages.home.viewAllWork}
           />
           <article className="mt-10 overflow-hidden rounded-3xl border border-line bg-card lg:grid lg:grid-cols-2 lg:items-stretch">
             <WorkVisual slug={featured.slug} className="aspect-[16/11] min-w-0 lg:aspect-auto lg:h-full lg:min-h-[22rem]" />
@@ -177,28 +193,37 @@ export default function HomePage() {
                 ))}
               </div>
               <h3 className="mt-4 font-display text-3xl md:text-4xl">{featured.name}</h3>
-              <p className="mt-4 text-sm leading-7 text-muted">{featured.blurb}</p>
+              <p className="mt-4 text-sm leading-7 text-muted">
+                {locale === "zh" && featuredZh ? featuredZh.blurb : featured.blurb}
+              </p>
               <p className="mt-4 text-xs text-muted">{featured.chain}</p>
               <Link href={`/work/${featured.slug}`} className="mt-6 text-sm text-gold hover:text-gold-soft">
-                Read the case study →
+                {messages.home.readCase} →
               </Link>
             </div>
           </article>
           <div className="mt-5 grid gap-5 md:grid-cols-3">
-            {rest.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/work/${project.slug}`}
-                className="overflow-hidden rounded-2xl border border-line bg-card transition hover:-translate-y-0.5"
-              >
-                <WorkVisual slug={project.slug} className="aspect-[16/10]" />
-                <div className="p-6">
-                  <p className="text-[11px] uppercase tracking-[0.16em] text-gold">{project.type}</p>
-                  <h3 className="mt-3 font-display text-2xl">{project.name}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{project.blurb}</p>
-                </div>
-              </Link>
-            ))}
+            {rest.map((project) => {
+              const localized = messages.projectsBySlug[project.slug];
+              return (
+                <Link
+                  key={project.slug}
+                  href={`/work/${project.slug}`}
+                  className="overflow-hidden rounded-2xl border border-line bg-card transition hover:-translate-y-0.5"
+                >
+                  <WorkVisual slug={project.slug} className="aspect-[16/10]" />
+                  <div className="p-6">
+                    <p className="text-[11px] uppercase tracking-[0.16em] text-gold">
+                      {locale === "zh" && localized ? localized.type : project.type}
+                    </p>
+                    <h3 className="mt-3 font-display text-2xl">{project.name}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted">
+                      {locale === "zh" && localized ? localized.blurb : project.blurb}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -206,19 +231,22 @@ export default function HomePage() {
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionHeading
-            eyebrow="How we work"
-            title="From brief to a staffed, shipped product."
+            eyebrow={messages.home.processEyebrow}
+            title={messages.home.processTitle}
             href="/how-we-work"
-            action="Full process"
+            action={messages.home.processAction}
           />
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {processSteps.map((step) => (
-              <div key={step.n} className="border-t border-gold/30 pt-6">
-                <p className="font-display text-sm text-gold">{step.n}</p>
-                <h3 className="mt-3 font-display text-2xl">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{step.body}</p>
-              </div>
-            ))}
+            {processSteps.map((step, index) => {
+              const localized = messages.processSteps[index];
+              return (
+                <div key={step.n} className="border-t border-gold/30 pt-6">
+                  <p className="font-display text-sm text-gold">{step.n}</p>
+                  <h3 className="mt-3 font-display text-2xl">{localized?.title ?? step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{localized?.body ?? step.body}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -226,11 +254,11 @@ export default function HomePage() {
       <section className="border-t border-line bg-raised">
         <div className="mx-auto max-w-7xl px-5 py-20">
           <SectionHeading
-            eyebrow="Careers"
-            title={`${jobs.length} seats we can staff now.`}
-            body="We hire under our name, then match you to client work. After our process you may interview with the client."
+            eyebrow={messages.home.careersEyebrow}
+            title={`${jobs.length} ${messages.home.careersTitle}`}
+            body={messages.home.careersBody}
             href="/careers"
-            action="View open seats"
+            action={messages.home.viewOpenSeats}
           />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {jobs
@@ -239,19 +267,22 @@ export default function HomePage() {
               )
               .map((job) => {
                 const pay = jobComp(job.salary);
+                const localized = localizeJob(job, locale);
                 return (
-                <Link
-                  key={job.slug}
-                  href={`/careers/${job.slug}`}
-                  className="rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5"
-                >
-                  <span className="text-[11px] uppercase tracking-[0.16em] text-gold">{job.department}</span>
-                  <h3 className="mt-5 font-display text-2xl">{job.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{job.summary}</p>
-                  <p className="mt-4 text-sm text-gold">
-                    {pay.fullTime}/yr · {pay.partTime} · {pay.advisory}
-                  </p>
-                </Link>
+                  <Link
+                    key={job.slug}
+                    href={`/careers/${job.slug}`}
+                    className="rounded-2xl border border-line bg-card p-6 transition hover:-translate-y-0.5"
+                  >
+                    <span className="text-[11px] uppercase tracking-[0.16em] text-gold">
+                      {localized.department}
+                    </span>
+                    <h3 className="mt-5 font-display text-2xl">{localized.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-muted">{localized.summary}</p>
+                    <p className="mt-4 text-sm text-gold">
+                      {pay.fullTime}/yr · {pay.partTime} · {pay.advisory}
+                    </p>
+                  </Link>
                 );
               })}
           </div>
@@ -260,14 +291,15 @@ export default function HomePage() {
 
       <section className="border-t border-line">
         <div className="mx-auto max-w-7xl px-5 py-20">
-          <SectionHeading eyebrow="FAQ" title="Straight answers before a call." />
+          <SectionHeading eyebrow={messages.home.faqEyebrow} title={messages.home.faqTitle} />
           <div className="mt-10">
             <FaqList />
           </div>
         </div>
       </section>
 
-      <CtaBand title="Tell us what you are building." action="Start a build" />
+      <CtaBand title={messages.home.ctaTitle} action={messages.home.ctaAction} />
+      <span className="sr-only">{site.name}</span>
     </>
   );
 }

@@ -1,27 +1,31 @@
+"use client";
+
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export function CtaBand({
-  title = site.tagline,
-  body = `Tell us the chain, the product, and whether you need a build, a team, or both. We will tell you what it takes to ship it.`,
+  title,
+  body,
   href = "/contact",
-  action = "Start a project",
+  action,
 }: {
   title?: string;
   body?: string;
   href?: string;
   action?: string;
 }) {
+  const { messages } = useLanguage();
+
   return (
     <section className="border-t border-line">
       <div className="mx-auto max-w-7xl px-5 py-20 text-center">
-        <p className="font-display text-4xl md:text-5xl">{title}</p>
-        <p className="mx-auto mt-4 max-w-md text-muted">{body}</p>
+        <p className="font-display text-4xl md:text-5xl">{title ?? messages.site.tagline}</p>
+        <p className="mx-auto mt-4 max-w-md text-muted">{body ?? messages.contact.ctaBody}</p>
         <Link
           href={href}
           className="mt-8 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft"
         >
-          {action}
+          {action ?? messages.common.startProject}
         </Link>
       </div>
     </section>

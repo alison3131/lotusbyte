@@ -2,32 +2,44 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/components/LanguageProvider";
 import { Logo } from "./Logo";
-import { nav, services, site } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 export function Footer() {
   const pathname = usePathname();
+  const { messages, locale } = useLanguage();
   if (pathname.startsWith("/admin")) return null;
+
+  const nav = [
+    { href: "/services", label: messages.nav.services },
+    { href: "/work", label: messages.nav.work },
+    { href: "/how-we-work", label: messages.nav.howWeWork },
+    { href: "/careers", label: messages.nav.careers },
+    { href: "/about", label: messages.nav.about },
+  ];
 
   return (
     <footer className="border-t border-line bg-raised">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-12 md:flex-row md:items-center">
         <div>
-          <p className="font-display text-2xl md:text-3xl">Need a product built or a team staffed?</p>
-          <p className="mt-2 text-sm text-muted">{site.location} · {site.email}</p>
+          <p className="font-display text-2xl md:text-3xl">{messages.footer.ctaTitle}</p>
+          <p className="mt-2 text-sm text-muted">
+            {messages.site.location} · {site.email}
+          </p>
         </div>
         <div className="flex flex-wrap gap-3">
           <Link
             href="/contact"
             className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] hover:bg-gold-soft"
           >
-            Start a project
+            {messages.common.startProject}
           </Link>
           <Link
             href="/careers"
             className="rounded-full border border-line px-6 py-3 text-sm text-ink hover:border-gold/40"
           >
-            Open roles
+            {messages.common.openRoles}
           </Link>
         </div>
       </div>
@@ -38,25 +50,32 @@ export function Footer() {
               <Logo className="h-7 w-7" />
               <span className="font-display text-lg font-semibold text-ink">{site.name}</span>
             </Link>
-            <p className="mt-4 max-w-sm text-sm leading-6 text-muted">{site.description}</p>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted">{messages.site.description}</p>
             <p className="mt-4 text-sm text-gold">{site.domain}</p>
           </div>
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Build</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+              {messages.footer.build}
+            </p>
             <ul className="mt-4 space-y-2">
-              {services.slice(0, 6).map((service) => (
-                <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`} className="text-sm text-ink/90 hover:text-gold">
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
+              {services.slice(0, 6).map((service) => {
+                const localized = messages.servicesBySlug[service.slug];
+                return (
+                  <li key={service.slug}>
+                    <Link href={`/services/${service.slug}`} className="text-sm text-ink/90 hover:text-gold">
+                      {locale === "zh" && localized ? localized.name : service.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Company</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+              {messages.footer.company}
+            </p>
             <ul className="mt-4 space-y-2">
               {nav.map((item) => (
                 <li key={item.href}>
@@ -67,23 +86,25 @@ export function Footer() {
               ))}
               <li>
                 <Link href="/contact" className="text-sm text-ink/90 hover:text-gold">
-                  Contact
+                  {messages.common.contact}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">Legal</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted">
+              {messages.footer.legal}
+            </p>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link href="/privacy" className="text-sm text-ink/90 hover:text-gold">
-                  Privacy
+                  {messages.common.privacy}
                 </Link>
               </li>
               <li>
                 <Link href="/terms" className="text-sm text-ink/90 hover:text-gold">
-                  Terms
+                  {messages.common.terms}
                 </Link>
               </li>
               <li>
@@ -96,7 +117,8 @@ export function Footer() {
         </div>
         <div className="border-t border-line">
           <p className="mx-auto max-w-7xl px-5 py-5 text-xs text-muted">
-            © {new Date().getFullYear()} {site.name}. {site.location}. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. {messages.site.location}.{" "}
+            {messages.common.rights}
           </p>
         </div>
       </div>

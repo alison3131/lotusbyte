@@ -37,6 +37,14 @@ body {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 }
 
+html[data-locale="zh"] body {
+  font-family: var(--font-noto-sc), var(--font-outfit), "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html[data-locale="zh"] .font-display {
+  font-family: var(--font-syne), var(--font-noto-sc), "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
 ::selection {
   background: rgba(232, 184, 74, 0.28);
   color: #fff8e8;
