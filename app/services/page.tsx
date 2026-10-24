@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: `Web3 product development and specialized teams from ${site.name}.`,
+  description: `Product design, web applications, portals, and operations software from ${site.name}.`,
 };
 
 export default function ServicesPage() {

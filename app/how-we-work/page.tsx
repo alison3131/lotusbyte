@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How we work",
-  description: `How ${site.name} scopes client builds, staffs developers, and delivers blockchain products.`,
+  description: `How ${site.name} learns an operation, designs the software, and stays through launch.`,
 };
 
 export default function HowWeWorkPage() {

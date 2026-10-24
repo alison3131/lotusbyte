@@ -13,23 +13,23 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#07070a",
-          color: "#f6f1e6",
+          background: "#f4f7fb",
+          color: "#142033",
           padding: "72px",
         }}
       >
-        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#e8b84a" }}>
-          LOOTRUSHS
+        <div style={{ display: "flex", fontSize: 28, letterSpacing: 6, color: "#1d4ed8" }}>
+          LOTUSBYTE
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>
-            Client products.
+            Software for
           </div>
-          <div style={{ fontSize: 72, fontWeight: 700, color: "#e8b84a", lineHeight: 1.05 }}>
-            Built and staffed.
+          <div style={{ fontSize: 72, fontWeight: 700, color: "#1d4ed8", lineHeight: 1.05 }}>
+            real work.
           </div>
-          <div style={{ marginTop: 28, fontSize: 28, color: "#9a9386" }}>
-            Development · talent · client delivery
+          <div style={{ marginTop: 28, fontSize: 28, color: "#5b6b7c" }}>
+            Design · build · care
           </div>
         </div>
       </div>

@@ -208,7 +208,7 @@ export function ApplyForm({
         <button
           type="submit"
           disabled={status === "saving"}
-          className="w-full rounded-full bg-gold py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft disabled:opacity-60"
+          className="w-full rounded-full bg-gold py-3 text-sm font-semibold text-white transition hover:bg-gold-soft disabled:opacity-60"
         >
           {status === "saving" ? t.submitting : t.submit}
         </button>

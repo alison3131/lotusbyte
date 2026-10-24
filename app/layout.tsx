@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   applicationName: site.name,
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    apple: "/lootrushs-avatar.png",
+    apple: "/lotusbyte-avatar.svg",
   },
   openGraph: {
     title: site.name,

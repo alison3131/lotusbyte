@@ -32,9 +32,9 @@ export default function HomePage() {
     <>
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={media.hero} alt="Lootrushs engineering bench" fill className="object-cover" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/88 to-bg/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
+          <Image src={media.hero} alt="Lotusbyte studio" fill className="object-cover" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/92 to-bg/72" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-bg/55" />
         </div>
         <div className="relative mx-auto max-w-7xl px-5 py-20 md:py-28">
           <p className="rise text-[11px] font-semibold uppercase tracking-[0.28em] text-gold">
@@ -48,7 +48,7 @@ export default function HomePage() {
           <div className="rise rise-d3 mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft"
+              className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white transition hover:bg-gold-soft"
             >
               {messages.home.startBuild}
             </Link>
@@ -263,7 +263,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {jobs
               .filter((job) =>
-                ["web3-designer", "senior-blockchain-developer", "product-manager-web3"].includes(job.slug),
+                ["product-designer", "senior-product-engineer", "product-manager"].includes(job.slug),
               )
               .map((job) => {
                 const pay = jobComp(job.salary);

@@ -31,7 +31,7 @@ export function Footer() {
         <div className="flex flex-wrap gap-3">
           <Link
             href="/contact"
-            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] hover:bg-gold-soft"
+            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white hover:bg-gold-soft"
           >
             {messages.common.startProject}
           </Link>

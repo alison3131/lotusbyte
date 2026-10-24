@@ -23,8 +23,8 @@ export function CareersPageContent() {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/55 via-bg/78 to-bg" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/70 via-bg/40 to-bg/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/75 via-bg/88 to-bg" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg/85 via-bg/60 to-bg/40" />
       </div>
 
       <BrandHero plain eyebrow={t.eyebrow} title={t.title}>
@@ -76,7 +76,7 @@ export function CareersPageContent() {
           </div>
           <Link
             href="/careers/apply"
-            className="mt-6 inline-flex shrink-0 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] hover:bg-gold-soft md:mt-0"
+            className="mt-6 inline-flex shrink-0 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white hover:bg-gold-soft md:mt-0"
           >
             {t.sendOpen}
           </Link>

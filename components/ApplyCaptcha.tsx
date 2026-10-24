@@ -46,9 +46,9 @@ export function ApplyCaptcha() {
         </span>
       </div>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-line bg-[#0b0a0e] shadow-[inset_0_0_0_1px_rgba(232,184,74,0.08)]">
+      <div className="mt-4 overflow-hidden rounded-xl border border-line bg-[#f4f7fb] shadow-[inset_0_0_0_1px_rgba(29,78,216,0.08)]">
         {loading ? (
-          <div className="flex h-[108px] w-full items-center justify-center bg-[linear-gradient(110deg,#121018_20%,#1c1810_40%,#121018_60%)] bg-[length:200%_100%] animate-pulse">
+          <div className="flex h-[108px] w-full items-center justify-center bg-[linear-gradient(110deg,#e7eef6_20%,#dbe6f5_40%,#e7eef6_60%)] bg-[length:200%_100%] animate-pulse">
             <span className="text-xs text-muted">Loading image…</span>
           </div>
         ) : challenge?.image ? (

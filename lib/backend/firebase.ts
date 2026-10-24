@@ -41,7 +41,7 @@ function loadServiceAccount(): Credentials {
   return { projectId, clientEmail, privateKey };
 }
 
-/** Lootrushs uses a named database id `default` — not Firebase’s usual `(default)`. */
+/** Lotusbyte uses a named database id `default` — not Firebase’s usual `(default)`. */
 function databaseId() {
   const configured = serverConfig.firestoreDatabaseId?.trim();
   if (!configured || configured === "(default)") return "default";
@@ -67,20 +67,20 @@ export function formatFirestoreError(error: unknown, id = databaseId()) {
 }
 
 const globalForFirebase = globalThis as typeof globalThis & {
-  lootrushsAdminApp?: App;
-  lootrushsFirestore?: Firestore;
-  lootrushsQuotaBlockedUntil?: number;
+  lotusbyteAdminApp?: App;
+  lotusbyteFirestore?: Firestore;
+  lotusbyteQuotaBlockedUntil?: number;
 };
 
 function adminApp() {
-  if (globalForFirebase.lootrushsAdminApp) return globalForFirebase.lootrushsAdminApp;
+  if (globalForFirebase.lotusbyteAdminApp) return globalForFirebase.lotusbyteAdminApp;
   if (getApps().length) {
-    globalForFirebase.lootrushsAdminApp = getApps()[0];
-    return globalForFirebase.lootrushsAdminApp;
+    globalForFirebase.lotusbyteAdminApp = getApps()[0];
+    return globalForFirebase.lotusbyteAdminApp;
   }
 
   const credentials = loadServiceAccount();
-  globalForFirebase.lootrushsAdminApp = initializeApp({
+  globalForFirebase.lotusbyteAdminApp = initializeApp({
     credential: cert({
       projectId: credentials.projectId,
       clientEmail: credentials.clientEmail,
@@ -88,7 +88,7 @@ function adminApp() {
     }),
     projectId: credentials.projectId,
   });
-  return globalForFirebase.lootrushsAdminApp;
+  return globalForFirebase.lotusbyteAdminApp;
 }
 
 function createClient(id: string) {
@@ -104,26 +104,26 @@ function createClient(id: string) {
 export function markFirestoreQuota(error: unknown) {
   if (!isQuotaError(error)) return;
   // Prefer a long pause — free-tier daily caps and short rate limits both surface as 429.
-  globalForFirebase.lootrushsQuotaBlockedUntil = Date.now() + DAILY_QUOTA_COOLDOWN_MS;
+  globalForFirebase.lotusbyteQuotaBlockedUntil = Date.now() + DAILY_QUOTA_COOLDOWN_MS;
   console.warn(
-    `Firestore quota cooldown ${DAILY_QUOTA_COOLDOWN_MS / 3600000}h until ${new Date(globalForFirebase.lootrushsQuotaBlockedUntil).toISOString()}`,
+    `Firestore quota cooldown ${DAILY_QUOTA_COOLDOWN_MS / 3600000}h until ${new Date(globalForFirebase.lotusbyteQuotaBlockedUntil).toISOString()}`,
   );
 }
 
 export async function firestore() {
-  const blockedUntil = globalForFirebase.lootrushsQuotaBlockedUntil ?? 0;
+  const blockedUntil = globalForFirebase.lotusbyteQuotaBlockedUntil ?? 0;
   if (Date.now() < blockedUntil) {
     throw new Error(formatFirestoreError(new Error("Quota exceeded."), databaseId()));
   }
 
-  if (!globalForFirebase.lootrushsFirestore) {
+  if (!globalForFirebase.lotusbyteFirestore) {
     loadServiceAccount();
     const id = databaseId();
-    globalForFirebase.lootrushsFirestore = createClient(id);
+    globalForFirebase.lotusbyteFirestore = createClient(id);
     console.info(`Firestore client ready for database "${id}"`);
   }
 
-  return globalForFirebase.lootrushsFirestore;
+  return globalForFirebase.lotusbyteFirestore;
 }
 
 export async function runFirestore<T>(fn: (db: Firestore) => Promise<T>): Promise<T> {

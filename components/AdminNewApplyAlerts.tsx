@@ -43,7 +43,7 @@ function saveSeenId(id: string) {
 function notify(application: LatestApplication) {
   if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
   try {
-    const notice = new Notification("New apply — Lootrushs", {
+    const notice = new Notification("New apply — Lotusbyte", {
       body: `${application.full_name} · ${application.role}`,
       tag: `apply-${application.id}`,
     });
@@ -157,7 +157,7 @@ export function AdminNewApplyAlerts() {
             className={`rounded-full px-3 py-1.5 text-sm font-semibold ${
               watching
                 ? "border border-line text-muted hover:border-gold/40 hover:text-gold"
-                : "bg-gold text-[#1a1406] hover:bg-gold-soft"
+                : "bg-gold text-white hover:bg-gold-soft"
             }`}
             onClick={async () => {
               if (!watching && permission !== "granted" && typeof Notification !== "undefined") {

@@ -25,8 +25,8 @@ export function BrandHero({
         {image ? (
           <>
             <Image src={image} alt={imageAlt} fill className="object-cover" sizes="100vw" priority />
-            <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/80 to-bg/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/50" />
+            <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/90 to-bg/70" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/25 to-bg/55" />
           </>
         ) : (
           <>

@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Start a Web3 build or staff a development team with ${site.name}.`,
+  description: `Start a software project with ${site.name}.`,
 };
 
 export default function ContactPage() {

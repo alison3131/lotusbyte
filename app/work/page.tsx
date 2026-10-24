@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: `Selected client Web3 products developed and delivered by ${site.name}.`,
+  description: `Selected client products designed and built by ${site.name}.`,
 };
 
 export default function WorkPage() {

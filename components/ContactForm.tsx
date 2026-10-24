@@ -21,8 +21,8 @@ export function ContactForm() {
       </p>
       <p className="mt-2 text-sm leading-6 text-muted">
         {locale === "zh"
-          ? "告诉我们你在做什么。有仓库或产品链接更好。清晰描述即可。"
-          : "Tell us what you are building. A repo or product link helps. A clear description is enough."}
+          ? "告诉我们团队今天怎么工作。一段录屏或现有工具的链接会有帮助。清楚描述即可。"
+          : "Tell us how the team works today. A recording or a link to the current tool helps. A clear description is enough."}
       </p>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
@@ -44,23 +44,21 @@ export function ContactForm() {
       <label className="mt-5 block text-sm text-muted" htmlFor="topic">
         {locale === "zh" ? "你需要什么？" : "What do you need?"}
         <select id="topic" name="topic" className={fieldClass}>
-          <option value="Build a product">{locale === "zh" ? "交付产品" : "Build a product"}</option>
-          <option value="Staff a development team">{locale === "zh" ? "配备开发团队" : "Staff a development team"}</option>
-          <option value="Build and staff">{locale === "zh" ? "交付并配备" : "Build and staff"}</option>
-          <option value="Smart contracts">{locale === "zh" ? "智能合约" : "Smart contracts"}</option>
-          <option value="dApp / product UI">{locale === "zh" ? "dApp / 产品界面" : "dApp / product UI"}</option>
-          <option value="DeFi protocol">{locale === "zh" ? "DeFi 协议" : "DeFi protocol"}</option>
-          <option value="Real estate / RWA">{locale === "zh" ? "房地产 / RWA" : "Real estate / RWA"}</option>
-          <option value="NFT / gaming">{locale === "zh" ? "NFT / 游戏" : "NFT / gaming"}</option>
-          <option value="Wallet / identity">{locale === "zh" ? "钱包 / 身份" : "Wallet / identity"}</option>
-          <option value="Infrastructure">{locale === "zh" ? "基础设施" : "Infrastructure"}</option>
-          <option value="Introduce a candidate">{locale === "zh" ? "介绍候选人" : "Introduce a candidate"}</option>
+          <option value="A defined build">{locale === "zh" ? "一次明确的构建" : "A defined build"}</option>
+          <option value="A retained team">{locale === "zh" ? "一支留任团队" : "A retained team"}</option>
+          <option value="Care after launch">{locale === "zh" ? "上线后的照料" : "Care after launch"}</option>
+          <option value="Product design">{locale === "zh" ? "产品设计" : "Product design"}</option>
+          <option value="Web application">{locale === "zh" ? "Web 应用" : "Web application"}</option>
+          <option value="Customer portal">{locale === "zh" ? "客户门户" : "Customer portal"}</option>
+          <option value="Operations software">{locale === "zh" ? "运营软件" : "Operations software"}</option>
+          <option value="Reporting">{locale === "zh" ? "数据与报告" : "Reporting"}</option>
+          <option value="Site and brand">{locale === "zh" ? "网站与品牌" : "Site and brand"}</option>
           <option value="Something else">{locale === "zh" ? "其他" : "Something else"}</option>
         </select>
       </label>
 
       <label className="mt-5 block text-sm text-muted" htmlFor="link">
-        {locale === "zh" ? "仓库、演示或产品站点" : "Repo, demo, or product site"}
+        {locale === "zh" ? "现有工具、录屏或网站" : "Current tool, recording, or site"}
         <input id="link" name="link" type="url" placeholder="https://" className={fieldClass} />
       </label>
 
@@ -73,8 +71,8 @@ export function ContactForm() {
           rows={6}
           placeholder={
             locale === "zh"
-              ? "链、产品、时间线、现状，以及不可错过的日期。"
-              : "Chain, product, timeline, what already exists, and the date you cannot miss."
+              ? "团队今天做什么、哪里卡住了、时间，以及不能错过的日期。"
+              : "What the team does today, where it gets stuck, the timeline, and the date you cannot miss."
           }
           className={`${fieldClass} resize-y`}
         />
@@ -82,7 +80,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="mt-6 w-full rounded-full bg-gold py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft"
+        className="mt-6 w-full rounded-full bg-gold py-3 text-sm font-semibold text-white transition hover:bg-gold-soft"
       >
         {messages.contact.send}
       </button>

@@ -111,9 +111,9 @@ export function AboutPageContent() {
             action={t.allCaseStudies}
           />
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <WorkVisual slug="brickfi" className="aspect-[16/10] rounded-2xl border border-line" />
-            <WorkVisual slug="vaultlayer" className="aspect-[16/10] rounded-2xl border border-line" />
-            <WorkVisual slug="keystone-aa" className="aspect-[16/10] rounded-2xl border border-line" />
+            <WorkVisual slug="stratafi" className="aspect-[16/10] rounded-2xl border border-line" />
+            <WorkVisual slug="northline" className="aspect-[16/10] rounded-2xl border border-line" />
+            <WorkVisual slug="marlow" className="aspect-[16/10] rounded-2xl border border-line" />
           </div>
         </div>
       </section>

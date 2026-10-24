@@ -23,7 +23,7 @@ export function CtaBand({
         <p className="mx-auto mt-4 max-w-md text-muted">{body ?? messages.contact.ctaBody}</p>
         <Link
           href={href}
-          className="mt-8 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft"
+          className="mt-8 inline-flex rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white transition hover:bg-gold-soft"
         >
           {action ?? messages.common.startProject}
         </Link>

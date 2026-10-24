@@ -1,6 +1,6 @@
-# Lootrushs
+# Lotusbyte
 
-Company website for **Lootrushs**, a Web3 development company, at [lootrushs.com](https://lootrushs.com).
+Company website for **Lotusbyte**, a product studio, at [lotusbyte.org](https://lotusbyte.org).
 
 ## Local
 
@@ -38,10 +38,10 @@ Keep Firestore closed to the public. The website writes with the Admin SDK.
 
 You do **not** need Firebase Storage.
 
-## Deploy to lootrushs.com
+## Deploy to lotusbyte.org
 
 1. Push this project to GitHub.
 2. Import the repo in [Vercel](https://vercel.com).
-3. Point the `lootrushs.com` domain at the deployment.
+3. Point the `lotusbyte.org` domain at the deployment.
 
 If the GitHub repo is public, anyone can read `lib/server-config.ts`. Use a private repo.

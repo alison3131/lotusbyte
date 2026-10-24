@@ -76,7 +76,7 @@ function randomCode() {
 }
 
 function renderSvg(code: string, filterId: string) {
-  const fills = ["#fff4c8", "#f5d06a", "#e8b84a", "#f6e7b2"];
+  const fills = ["#1e3a8a", "#1d4ed8", "#1e40af", "#2563eb"];
   const letters = [...code]
     .map((char, index) => {
       const x = 36 + index * 58;
@@ -92,22 +92,22 @@ function renderSvg(code: string, filterId: string) {
     const x = 20 + randomInt(300);
     const y = 24 + randomInt(64);
     const rotate = randomInt(50) - 25;
-    return `<text x="${x}" y="${y}" transform="rotate(${rotate} ${x} ${y})" font-size="${16 + randomInt(10)}" font-family="Georgia, serif" fill="rgba(232,184,74,0.18)">${char}</text>`;
+    return `<text x="${x}" y="${y}" transform="rotate(${rotate} ${x} ${y})" font-size="${16 + randomInt(10)}" font-family="Georgia, serif" fill="rgba(29,78,216,0.16)">${char}</text>`;
   }).join("");
   const streaks = Array.from({ length: 7 }, () => {
     const y = 12 + randomInt(84);
-    return `<path d="M${8 + randomInt(20)} ${y} C ${80 + randomInt(40)} ${y + randomInt(18) - 9}, ${180 + randomInt(40)} ${y + randomInt(16) - 8}, ${320 - randomInt(16)} ${y + randomInt(12) - 6}" fill="none" stroke="rgba(245,208,106,0.22)" stroke-width="${1 + randomInt(2)}"/>`;
+    return `<path d="M${8 + randomInt(20)} ${y} C ${80 + randomInt(40)} ${y + randomInt(18) - 9}, ${180 + randomInt(40)} ${y + randomInt(16) - 8}, ${320 - randomInt(16)} ${y + randomInt(12) - 6}" fill="none" stroke="rgba(37,99,235,0.22)" stroke-width="${1 + randomInt(2)}"/>`;
   }).join("");
   const dots = Array.from({ length: 28 }, () => {
-    return `<circle cx="${randomInt(340)}" cy="${randomInt(108)}" r="${0.6 + randomInt(2) / 2}" fill="rgba(255,244,200,${(18 + randomInt(30)) / 100})"/>`;
+    return `<circle cx="${randomInt(340)}" cy="${randomInt(108)}" r="${0.6 + randomInt(2) / 2}" fill="rgba(29,78,216,${(12 + randomInt(18)) / 100})"/>`;
   }).join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="340" height="108" viewBox="0 0 340 108" role="img" aria-label="Verification image">
   <defs>
     <linearGradient id="bg-${filterId}" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1a140c"/>
-      <stop offset="45%" stop-color="#0c0b10"/>
-      <stop offset="100%" stop-color="#24180c"/>
+      <stop offset="0%" stop-color="#e7eef6"/>
+      <stop offset="45%" stop-color="#f4f7fb"/>
+      <stop offset="100%" stop-color="#dbe6f5"/>
     </linearGradient>
     <filter id="grain-${filterId}">
       <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/>
@@ -120,17 +120,17 @@ function renderSvg(code: string, filterId: string) {
       <feDisplacementMap in="SourceGraphic" in2="t" scale="6" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
     <filter id="glow-${filterId}">
-      <feDropShadow dx="0" dy="1" stdDeviation="0.8" flood-color="#e8b84a" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="1" stdDeviation="0.8" flood-color="#1d4ed8" flood-opacity="0.35"/>
     </filter>
     <clipPath id="frame-${filterId}"><rect width="340" height="108" rx="0"/></clipPath>
   </defs>
   <g clip-path="url(#frame-${filterId})">
     <rect width="340" height="108" fill="url(#bg-${filterId})"/>
     <rect width="340" height="108" filter="url(#grain-${filterId})" opacity="0.35"/>
-    <text x="16" y="22" font-size="9" letter-spacing="3" font-family="ui-sans-serif, system-ui" fill="rgba(232,184,74,0.28)">LOOTRUSHS VERIFY</text>
+    <text x="16" y="22" font-size="9" letter-spacing="3" font-family="ui-sans-serif, system-ui" fill="rgba(29,78,216,0.45)">LOTUSBYTE VERIFY</text>
     <g filter="url(#warp-${filterId})">${decoys}${streaks}${letters}</g>
     ${dots}
-    <rect x="0" y="0" width="340" height="108" fill="none" stroke="rgba(232,184,74,0.18)"/>
+    <rect x="0" y="0" width="340" height="108" fill="none" stroke="rgba(29,78,216,0.22)"/>
   </g>
 </svg>`;
 }

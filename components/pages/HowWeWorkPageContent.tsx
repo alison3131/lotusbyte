@@ -19,7 +19,7 @@ export function HowWeWorkPageContent() {
         <div className="mt-8 flex flex-wrap gap-4">
           <Link
             href="/contact"
-            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-[#1a1406] hover:bg-gold-soft"
+            className="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-white hover:bg-gold-soft"
           >
             {t.sendBrief}
           </Link>

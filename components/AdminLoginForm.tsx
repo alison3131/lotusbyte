@@ -61,7 +61,7 @@ export function AdminLoginForm() {
       <button
         type="submit"
         disabled={status === "saving"}
-        className="mt-6 w-full rounded-full bg-gold py-3 text-sm font-semibold text-[#1a1406] transition hover:bg-gold-soft disabled:opacity-60"
+        className="mt-6 w-full rounded-full bg-gold py-3 text-sm font-semibold text-white transition hover:bg-gold-soft disabled:opacity-60"
       >
         {status === "saving" ? "Signing in…" : "Sign in"}
       </button>

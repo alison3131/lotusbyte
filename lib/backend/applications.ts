@@ -46,7 +46,7 @@ type ListCache = {
 };
 
 const globalCache = globalThis as typeof globalThis & {
-  lootrushsApplicationListCache?: ListCache;
+  lotusbyteApplicationListCache?: ListCache;
 };
 
 function asDate(value: unknown) {
@@ -87,28 +87,28 @@ function fromDoc(id: string, data: DocumentData): ApplicationRow {
 }
 
 function invalidateListCache() {
-  globalCache.lootrushsApplicationListCache = undefined;
+  globalCache.lotusbyteApplicationListCache = undefined;
 }
 
 function setListCache(rows: ApplicationRow[]) {
-  globalCache.lootrushsApplicationListCache = {
+  globalCache.lotusbyteApplicationListCache = {
     expiresAt: Date.now() + LIST_CACHE_TTL_MS,
     rows,
   };
 }
 
 function readListCache() {
-  const cache = globalCache.lootrushsApplicationListCache;
+  const cache = globalCache.lotusbyteApplicationListCache;
   if (!cache) return null;
   if (Date.now() > cache.expiresAt) {
-    globalCache.lootrushsApplicationListCache = undefined;
+    globalCache.lotusbyteApplicationListCache = undefined;
     return null;
   }
   return cache.rows;
 }
 
 function patchListCache(mutator: (rows: ApplicationRow[]) => ApplicationRow[]) {
-  const cache = globalCache.lootrushsApplicationListCache;
+  const cache = globalCache.lotusbyteApplicationListCache;
   if (!cache) return;
   cache.rows = mutator(cache.rows);
   cache.expiresAt = Date.now() + LIST_CACHE_TTL_MS;

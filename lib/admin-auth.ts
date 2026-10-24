@@ -1,6 +1,6 @@
 import { serverConfig } from "./server-config";
 
-const COOKIE = "lr_admin";
+const COOKIE = "lb_admin";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7;
 
 function encoder() {
