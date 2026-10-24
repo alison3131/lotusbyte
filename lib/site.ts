@@ -3,10 +3,10 @@ export const site = {
   domain: "lotusbyte.org",
   url: "https://lotusbyte.org",
   email: "hello@lotusbyte.org",
-  tagline: "Software for companies that run real work.",
+  tagline: "Web3 products for clients. Talent to ship them.",
   location: "Remote · Worldwide",
   description:
-    "Lotusbyte is a product studio. We design and build custom software for property groups, clinics, logistics teams, and other companies that have outgrown spreadsheets.",
+    "Lotusbyte is a Web3 development and talent company. We build blockchain products for client companies, and we hire and manage the developers who do that work.",
 };
 
 export const media = {
@@ -25,97 +25,113 @@ export const nav = [
 ];
 
 export const chains = [
-  "Property",
-  "Clinics",
-  "Logistics",
-  "Wholesale",
-  "Field teams",
-  "Professional firms",
+  "Ethereum",
+  "Solana",
+  "Polygon",
+  "Arbitrum",
+  "Base",
+  "Optimism",
+  "BNB Chain",
+  "Avalanche",
 ];
 
 export const services = [
   {
-    slug: "product-design",
-    name: "Product design",
-    stack: "Research · Figma · prototypes",
+    slug: "smart-contracts",
+    name: "Smart contracts",
+    stack: "Solidity · Rust · Move",
     photo: "/media/about.jpg",
     blurb:
-      "Interfaces for people who use the product all day: clear flows, honest empty states, and a system your engineers can build from.",
+      "Protocol-grade contracts for tokens, vaults, staking, governance, and custom on-chain logic — with tests, gas care, and upgrade paths.",
     items: [
-      "Research with the people who do the work",
-      "Flows, screens, and the states in between",
-      "A design system that matches the product",
-      "Prototypes you can click before we write code",
+      "Token, vault, staking, and governance modules",
+      "Access control, upgrade proxies, and admin paths",
+      "Foundry tests, fuzzing, and deploy scripts",
+      "Audit-ready documentation and ABI handoff",
     ],
   },
   {
-    slug: "web-applications",
-    name: "Web applications",
-    stack: "TypeScript · Next.js · Postgres",
-    photo: "/media/hero.jpg",
-    blurb:
-      "Custom web software for a job your team already has — scheduling, records, approvals — built to be used on Monday morning.",
-    items: [
-      "Accounts, roles, and permissions",
-      "Forms, queues, and review steps",
-      "Search, filters, and audit history",
-      "A release your staff can learn in a sitting",
-    ],
-  },
-  {
-    slug: "customer-portals",
-    name: "Customer portals",
-    stack: "Self-service · accounts · status",
-    photo: "/media/northline.jpg",
-    blurb:
-      "A place for your customers to see status, upload documents, and ask for help without calling the front desk.",
-    items: [
-      "Sign-in, invites, and account recovery",
-      "Orders, bookings, or cases they can follow",
-      "Document upload and message threads",
-      "Notifications that say what changed",
-    ],
-  },
-  {
-    slug: "operations",
-    name: "Operations software",
-    stack: "Workflows · vendors · records",
-    photo: "/media/stratafi.jpg",
-    blurb:
-      "The internal system that replaces the shared inbox and the master spreadsheet: work orders, vendors, and a record of what happened.",
-    items: [
-      "Work orders, assignments, and due dates",
-      "Vendor and customer records in one place",
-      "Approvals with a name and a timestamp",
-      "Exports your finance team can reconcile",
-    ],
-  },
-  {
-    slug: "data-reporting",
-    name: "Data and reporting",
-    stack: "Dashboards · exports · alerts",
-    photo: "/media/paperlane.jpg",
-    blurb:
-      "Numbers your operators trust: a few dashboards, scheduled exports, and an alert when something is late.",
-    items: [
-      "Dashboards tied to the live product",
-      "Scheduled reports for managers",
-      "Exports that match the source of truth",
-      "Alerts when a queue or deadline slips",
-    ],
-  },
-  {
-    slug: "sites",
-    name: "Sites and brand",
-    stack: "Marketing · content · identity",
+    slug: "dapps",
+    name: "dApps & product UI",
+    stack: "Next.js · wagmi · ethers",
     photo: "/media/careers.jpg",
     blurb:
-      "A public site that explains the company in plain language, and a visual system that still looks like you inside the product.",
+      "Wallet-connected apps that feel like real products: mint flows, dashboards, swaps, and admin tools people can actually use.",
     items: [
-      "Site structure, writing, and page design",
-      "A mark, type, and color that travel",
-      "Case studies and a careers path",
-      "A handoff your team can edit",
+      "Wallet connect, chain switch, and transaction states",
+      "Invest, mint, swap, and admin surfaces",
+      "Design systems that match the protocol",
+      "Mobile-ready dApp paths",
+    ],
+  },
+  {
+    slug: "defi",
+    name: "DeFi protocols",
+    stack: "AMMs · lending · restaking",
+    photo: "/media/hero.jpg",
+    blurb:
+      "Markets, liquidity, yield, and risk systems designed around real user flows — not a whitepaper left on a whiteboard.",
+    items: [
+      "AMMs, vaults, and strategy plugins",
+      "Lending, liquidation, and oracle wiring",
+      "Admin roles and emergency pauses",
+      "TVL and position reporting",
+    ],
+  },
+  {
+    slug: "rwa-real-estate",
+    name: "RWA & real estate",
+    stack: "Tokenization · fractional ownership",
+    photo: "/media/stratafi.jpg",
+    blurb:
+      "On-chain property and real-world asset products: share issuance, investor onboarding, distributions, and reporting — the same work we delivered on Stratafi for a client.",
+    items: [
+      "Share issuance and allowlists",
+      "Distributions and lockups",
+      "Investor onboarding and statements",
+      "Eligibility gates counsel specifies",
+    ],
+  },
+  {
+    slug: "nfts-gaming",
+    name: "NFTs, gaming & drops",
+    stack: "ERC-721 · 1155 · compressed NFTs",
+    photo: "/media/keel.jpg",
+    blurb:
+      "Collections, marketplaces, in-game assets, and reveal mechanics with minting, royalties, and inventory that holds up under load.",
+    items: [
+      "Mint, reveal, and royalty flows",
+      "Marketplace and inventory",
+      "Compressed NFTs and craft loops",
+      "Launch-week load planning",
+    ],
+  },
+  {
+    slug: "wallets-identity",
+    name: "Wallets & identity",
+    stack: "AA · SIWE · passkeys",
+    photo: "/media/marlow.jpg",
+    blurb:
+      "Onboarding that does not stall at the seed phrase. Account abstraction, social login, and session keys for consumer products.",
+    items: [
+      "Account abstraction and paymasters",
+      "Passkeys and session keys",
+      "SIWE and embedded wallets",
+      "Recovery and policy controls",
+    ],
+  },
+  {
+    slug: "infra",
+    name: "Chain infrastructure",
+    stack: "Indexers · RPCs · oracles",
+    photo: "/media/contact.jpg",
+    blurb:
+      "Indexers, subgraphs, relayers, oracles, and node plumbing so your product stays live when the chain gets noisy.",
+    items: [
+      "Subgraphs and custom indexers",
+      "RPC strategy and keepers",
+      "Oracle and cross-chain adapters",
+      "Monitoring and deploy playbooks",
     ],
   },
 ];
@@ -124,221 +140,221 @@ export const projects = [
   {
     slug: "stratafi",
     name: "Stratafi",
-    type: "Property operations",
-    tags: ["Property", "Operations", "Portals"],
-    chain: "Residential groups",
-    service: "operations",
+    type: "RWA · Real estate",
+    tags: ["RWA", "Tokenization", "dApp"],
+    chain: "Ethereum · Polygon",
+    service: "rwa-real-estate",
     photo: "/media/stratafi.jpg",
     blurb:
-      "Operations software for a residential property group: buildings, owners, work orders, and vendor invoices in one product.",
+      "A client real estate investment platform for fractional property ownership. Lotusbyte developed, completed, and delivered on-chain shares, distributions, and the investor dashboard.",
     challenge:
-      "Staff tracked buildings in a spreadsheet, vendors in email, and owner questions in a shared inbox. Nothing agreed on what was open.",
+      "The client needed fractional property shares, distributions, and investor reporting that matched what counsel told buyers — not a generic DEX skin.",
     delivered: [
-      "Building, unit, and owner records",
-      "Work orders with assignment and history",
-      "A vendor portal for invoices and status",
-      "A weekly report managers actually open",
+      "Share token, allowlists, and distribution contracts",
+      "Investor browse, purchase, yield, and statement flows",
+      "Admin paths for lockups and eligibility gates",
+      "Staffed bench through Lotusbyte for launch and support",
     ],
-    stack: ["Next.js", "TypeScript", "Postgres"],
+    stack: ["Solidity", "Next.js", "Polygon", "Ethereum"],
   },
   {
-    slug: "northline",
-    name: "Northline",
-    type: "Logistics portal",
-    tags: ["Logistics", "Portal", "Tracking"],
-    chain: "Freight",
-    service: "customer-portals",
+    slug: "vaultlayer",
+    name: "Vaultlayer",
+    type: "DeFi · Protocol",
+    tags: ["DeFi", "Vaults", "L2"],
+    chain: "Base · Optimism",
+    service: "defi",
     photo: "/media/northline.jpg",
     blurb:
-      "A customer portal for a regional freight company so shippers can book, track, and download documents without a phone call.",
+      "Modular yield vaults with strategy plugins, role-based admin, and real-time TVL reporting across L2s.",
     challenge:
-      "Customers called for every status update. Dispatch copied the same fields into three tools.",
+      "A protocol team wanted strategy plugins and TVL reporting without giving a single admin the power to rug depositors.",
     delivered: [
-      "Booking and document upload",
-      "Live shipment status for the customer",
-      "A dispatch queue that matches the portal",
-      "Proof-of-delivery files in the account",
+      "Vault core with plugin strategies",
+      "Role-based admin and pause paths",
+      "Cross-L2 TVL reporting",
+      "Operator dashboard for the client team",
     ],
-    stack: ["Next.js", "TypeScript", "Postgres"],
+    stack: ["Solidity", "Foundry", "Base", "Optimism"],
   },
   {
-    slug: "marlow",
-    name: "Marlow",
-    type: "Clinic software",
-    tags: ["Clinics", "Scheduling", "Intake"],
-    chain: "Outpatient care",
-    service: "web-applications",
-    photo: "/media/marlow.jpg",
-    blurb:
-      "Scheduling and intake for a small clinic group: appointments, forms, and a front-desk view that stays in sync.",
-    challenge:
-      "Patients booked by phone. Forms lived on paper. The front desk retyped the same details into the chart.",
-    delivered: [
-      "Online booking with real availability",
-      "Intake forms sent before the visit",
-      "A day view for the front desk",
-      "Reminders that cut no-shows",
-    ],
-    stack: ["Next.js", "TypeScript", "Postgres"],
-  },
-  {
-    slug: "fieldnote",
-    name: "Fieldnote",
-    type: "Field service",
-    tags: ["Field teams", "Mobile", "Jobs"],
-    chain: "Facilities",
-    service: "operations",
-    photo: "/media/fieldnote.jpg",
-    blurb:
-      "A job app for a facilities company: technicians see the day’s work, capture photos, and close the ticket on site.",
-    challenge:
-      "Jobs were printed in the morning. Photos came back by text. Invoicing waited on someone to retype the notes.",
-    delivered: [
-      "A daily job list on the phone",
-      "Photo, note, and signature capture",
-      "Office review before an invoice",
-      "A history on the customer record",
-    ],
-    stack: ["React", "TypeScript", "Postgres"],
-  },
-  {
-    slug: "paperlane",
-    name: "Paperlane",
-    type: "Editorial workflow",
-    tags: ["Publishing", "Workflow", "Reporting"],
-    chain: "Media",
-    service: "data-reporting",
+    slug: "signal-dao",
+    name: "Signal DAO",
+    type: "Governance",
+    tags: ["DAO", "Voting", "Treasury"],
+    chain: "Polygon",
+    service: "smart-contracts",
     photo: "/media/paperlane.jpg",
     blurb:
-      "A production desk for an independent publisher: assignments, drafts, and a calendar the editors can trust.",
+      "Proposal, voting, and treasury tooling with on-chain execution and off-chain discussion that actually stays in sync.",
     challenge:
-      "Assignments lived in chat. Deadlines slipped because nobody shared one calendar.",
+      "Forum votes and on-chain execution were drifting. Delegates could not tell what had actually passed.",
     delivered: [
-      "Assignment and draft status",
-      "A shared production calendar",
-      "Review comments in the piece",
-      "A weekly load report for editors",
+      "Proposal and voting contracts",
+      "Treasury execution with role checks",
+      "Discussion surface tied to on-chain state",
+      "Handoff docs the client’s mods can run",
     ],
-    stack: ["Next.js", "TypeScript", "Postgres"],
+    stack: ["Solidity", "Polygon", "Next.js"],
   },
   {
-    slug: "keel",
-    name: "Keel",
-    type: "Wholesale ordering",
-    tags: ["Wholesale", "Orders", "Accounts"],
-    chain: "Housewares",
-    service: "customer-portals",
+    slug: "emberforge",
+    name: "Emberforge",
+    type: "Gaming · NFT",
+    tags: ["NFT", "Gaming", "Solana"],
+    chain: "Solana",
+    service: "nfts-gaming",
     photo: "/media/keel.jpg",
     blurb:
-      "An ordering portal for a housewares brand so retailers can reorder, see inventory, and check invoices themselves.",
+      "In-game asset economy: compressed NFTs, craft-and-burn loops, and a marketplace with instant settlement.",
     challenge:
-      "Buyers emailed spreadsheets. Sales rekeyed orders. Inventory on the site never matched the warehouse.",
+      "The studio needed inventory and marketplace settlement that would not stall under a drop, without 12MB motion or dead listings.",
     delivered: [
-      "Account pricing and a catalog",
-      "Reorder from past invoices",
-      "Inventory that matches the warehouse",
-      "Order status the buyer can see",
+      "Compressed NFT inventory",
+      "Craft-and-burn loops",
+      "Marketplace with instant settlement",
+      "Launch-week ops from the Lotusbyte bench",
     ],
-    stack: ["Next.js", "TypeScript", "Postgres"],
+    stack: ["Rust", "Solana", "compressed NFTs"],
+  },
+  {
+    slug: "bridgerush",
+    name: "BridgeRush",
+    type: "Cross-chain",
+    tags: ["Bridge", "Infra", "Ops"],
+    chain: "Multi-chain",
+    service: "infra",
+    photo: "/media/fieldnote.jpg",
+    blurb:
+      "A token and message bridge with light-client proofs, retryable transfers, and operator dashboards for support teams.",
+    challenge:
+      "Support could not see stuck transfers. Retry lived in a spreadsheet. The client needed an operator view, not only a contract.",
+    delivered: [
+      "Token and message bridge paths",
+      "Retryable transfers",
+      "Operator dashboard for support",
+      "Monitoring the client team can keep",
+    ],
+    stack: ["Solidity", "Relayers", "Next.js"],
+  },
+  {
+    slug: "keystone-aa",
+    name: "Keystone AA",
+    type: "Wallets",
+    tags: ["AA", "Passkeys", "SDK"],
+    chain: "EVM",
+    service: "wallets-identity",
+    photo: "/media/marlow.jpg",
+    blurb:
+      "Account-abstraction wallet kit: passkey signers, session keys, paymasters, and a drop-in React SDK.",
+    challenge:
+      "Consumer onboarding died at the seed phrase. The client wanted passkeys and session keys without rewriting their whole app.",
+    delivered: [
+      "Passkey signers and session keys",
+      "Paymaster wiring",
+      "Drop-in React SDK",
+      "Example mint and account flows",
+    ],
+    stack: ["ERC-4337", "TypeScript", "React"],
   },
 ];
 
 export const values = [
   {
-    title: "Start from the work",
-    body: "We sit with the people who do the job before we draw a screen. The product follows their day, not a template.",
+    title: "Talent plus delivery",
+    body: "We recruit under the Lotusbyte name and stay the employer. Developers work through us while they build and support the client’s product.",
   },
   {
-    title: "Ship something usable",
-    body: "A smaller release that staff open on Monday beats a large plan that stays in a deck.",
+    title: "Ship the client’s product",
+    body: "Contracts, tests, and product surfaces that go to mainnet. Discovery is short. Delivery is the point.",
   },
   {
-    title: "Say it plainly",
-    body: "Scope, dates, and tradeoffs are written down. If we are the wrong studio, we say so before a contract.",
+    title: "Security is part of the build",
+    body: "Invariants, fuzzing, access control, and upgrade safety sit in the same sprint as features — not a week after launch.",
   },
   {
-    title: "Stay after launch",
-    body: "The first month in real use is part of the work. We fix what the team actually hits.",
+    title: "Multi-chain by default",
+    body: "Ethereum, L2s, Solana, and adjacent ecosystems. We pick the chain for the client’s product, not the other way around.",
   },
 ];
 
 export const processSteps = [
   {
     n: "01",
-    title: "Learn the operation",
-    body: "We map who does the work, what they use today, and what must be true on the first release.",
+    title: "Scope the client work",
+    body: "We map the protocol, threat model, and product surface — what lives on-chain, what stays off, and what must ship first.",
   },
   {
     n: "02",
-    title: "Design and build",
-    body: "Design and engineering sit on one team. You see the product weekly, not at the end.",
+    title: "Staff and build",
+    body: "We hire or assign developers through Lotusbyte, then ship contracts, indexers, and dApp UI as one team.",
   },
   {
     n: "03",
-    title: "Launch and stay",
-    body: "We train the people who will use it, watch the first weeks, and keep a short list of what to fix.",
+    title: "Deliver and support",
+    body: "Mainnet deploy, monitoring, and ongoing development. The product stays the client’s. The bench stays ours.",
   },
 ];
 
 export const hiringSteps = [
   {
     n: "01",
-    title: "Apply",
-    body: "Send a resume and a short note on this site. Tell us the kind of product work you want.",
+    title: "Apply or get introduced",
+    body: "Roles are posted under the Lotusbyte name. We source candidates, or a client finds someone and sends them to us for the formal process.",
   },
   {
     n: "02",
-    title: "Conversation and a sample",
-    body: "We talk about work you have shipped. Some roles include a small, paid exercise on a real problem.",
+    title: "Lotusbyte hiring",
+    body: "We screen, interview, and decide if you are a fit for our bench and for the kind of client work we take.",
   },
   {
     n: "03",
-    title: "An offer from Lotusbyte",
-    body: "If it is a fit, the offer is from us: full-time, part-time, or advisory. You join the studio, not a client’s payroll.",
+    title: "Client interview",
+    body: "After you pass our process, you may complete a final interview with the client company before joining that project.",
   },
   {
     n: "04",
-    title: "Join a project",
-    body: "You work with our designers and engineers on a client product. The client hires Lotusbyte. You stay on our team.",
+    title: "Join through Lotusbyte",
+    body: "If both sides agree, you work through Lotusbyte — developing, maintaining, and supporting the client’s blockchain product.",
   },
 ];
 
 export const audiences = [
   {
-    slug: "property",
-    name: "Property groups",
-    blurb: "Buildings, owners, work orders, and vendors in one system instead of five inboxes.",
-    href: "/work/stratafi",
+    slug: "protocols",
+    name: "DeFi & protocol teams",
+    blurb: "Contracts, oracles, vaults, and the dApp your users actually finish.",
+    href: "/services#defi",
   },
   {
-    slug: "clinics",
-    name: "Clinics and care",
-    blurb: "Booking, intake, and a front desk that is not retyping the same form.",
-    href: "/work/marlow",
+    slug: "rwa",
+    name: "RWA & real estate",
+    blurb: "Issuance, eligibility, distributions, and investor reporting — Stratafi-class delivery.",
+    href: "/services#rwa-real-estate",
   },
   {
-    slug: "logistics",
-    name: "Logistics operators",
-    blurb: "A portal where customers book and track, and dispatch sees the same record.",
-    href: "/work/northline",
+    slug: "studios",
+    name: "Studios & consumer apps",
+    blurb: "Mints, wallets, game economies, and drops that hold up under load.",
+    href: "/services#nfts-gaming",
   },
   {
-    slug: "wholesale",
-    name: "Wholesale brands",
-    blurb: "Retailers reorder themselves, with pricing and inventory that match the warehouse.",
-    href: "/work/keel",
+    slug: "fintech",
+    name: "Fintechs & product companies",
+    blurb: "A staffed bench through Lotusbyte when you need chain work inside your product.",
+    href: "/how-we-work",
   },
   {
-    slug: "field",
-    name: "Field teams",
-    blurb: "Jobs, photos, and sign-off on the phone, so the office is not waiting on a text.",
-    href: "/work/fieldnote",
+    slug: "l2",
+    name: "L1 / L2 and infra",
+    blurb: "Indexers, RPCs, bridges, and the operator tools support teams can run.",
+    href: "/services#infra",
   },
   {
-    slug: "firms",
-    name: "Teams leaving spreadsheets",
-    blurb: "When the master file is the product, it is time for software your staff can share.",
-    href: "/contact",
+    slug: "talent",
+    name: "Teams hiring Web3 talent",
+    blurb: "We source, screen, and employ developers who then join your project through us.",
+    href: "/careers",
   },
 ];
 
@@ -346,26 +362,26 @@ export const engagements = [
   {
     slug: "build",
     n: "01",
-    title: "A defined build",
-    body: "A scoped product: discovery, design, and a first release. You own the software. We stay through launch.",
+    title: "Build the product",
+    body: "A scoped engagement: contracts, indexer, and UI as one delivery. You own the product. We stay through launch.",
     href: "/contact",
     action: "Send a brief",
   },
   {
-    slug: "retainer",
+    slug: "staff",
     n: "02",
-    title: "A retained team",
-    body: "Designers and engineers on a monthly rhythm after the first release, for the next slice of the product.",
+    title: "Staff the team",
+    body: "We hire under the Lotusbyte name and assign people to your project. You may do a final interview. They work through us.",
     href: "/how-we-work",
-    action: "See how it works",
+    action: "See the hiring path",
   },
   {
-    slug: "care",
+    slug: "both",
     n: "03",
-    title: "Care after launch",
-    body: "Fixes, small features, and a person who already knows the system when something breaks.",
+    title: "Build and staff",
+    body: "Most clients need both: a first ship, then a standing bench for maintenance. One partner for delivery and talent.",
     href: "/contact",
-    action: "Ask about care",
+    action: "Start that conversation",
   },
 ];
 
@@ -373,93 +389,93 @@ export const clientProcess = [
   {
     n: "01",
     title: "Send the brief",
-    body: "What the team does today, what is breaking, and the date that matters. A screen recording is enough to start.",
+    body: "Chain, product, what exists, and the date you cannot miss. A repo or demo helps. A clear description is enough to start.",
   },
   {
     n: "02",
-    title: "A read before the call",
-    body: "Someone who will do the work reads what you sent. We only book a call if we can help.",
+    title: "Technical read",
+    body: "An engineer reads what you sent before a call. We decide if we can staff it and whether the work belongs on-chain.",
   },
   {
     n: "03",
-    title: "Working session",
-    body: "We walk the current process with the people who use it. You meet the studio, not a sales deck.",
+    title: "Discovery call",
+    body: "We walk through constraints: chain, custody, compliance, runway. You meet the people who would do the work.",
   },
   {
     n: "04",
-    title: "A written plan",
-    body: "Scope, phases, who is on it, and a first release. We decline work that is a poor fit.",
+    title: "Written plan",
+    body: "Scope, phases, who we would staff, and a first step. We say no if we are not the right bench.",
   },
   {
     n: "05",
-    title: "Build in the open",
-    body: "Weekly product you can click. Decisions stay in writing so the team is not guessing.",
+    title: "Staff and ship",
+    body: "Developers join through Lotusbyte. Contracts, tests, and product surfaces move together until mainnet.",
   },
   {
     n: "06",
-    title: "Hand off and stay",
-    body: "Training, access, and a short care window. The software is yours. We remain available.",
+    title: "Operate",
+    body: "Monitoring, incident paths, and ongoing development. The product stays yours. The bench stays ours.",
   },
 ];
 
 export const principles = [
   {
-    title: "No work we cannot staff",
-    body: "If the date and the team do not match, the plan says no. We would rather lose a brief than miss a launch.",
+    title: "Honesty before contract",
+    body: "If you do not need a chain, or we cannot staff the work, the plan says so. We would rather lose a brief than ship a bad one.",
   },
   {
-    title: "Fewer tools, used well",
-    body: "We start from a small stack we know. New technology has to earn a place in the product.",
+    title: "Novelty only where it pays",
+    body: "Vaults, tokens, and wallet flows start from patterns that have survived mainnet. New design work goes where your product differs.",
   },
   {
-    title: "The operators are the users",
-    body: "We test with the people who will live in the software, not only with the person who hired us.",
+    title: "Operate what we build",
+    body: "Deploy keys, monitoring, and a handoff your team can run are part of delivery — not a week after launch.",
   },
   {
-    title: "You own the result",
-    body: "Code, design files, and accounts transfer with the engagement. Handoff is part of delivery.",
+    title: "One employer of record",
+    body: "People on your project work through Lotusbyte. That keeps hiring, access, and accountability in one place.",
   },
 ];
 
 export const stack = [
-  { group: "Product", items: ["Figma", "Prototypes", "Design systems", "Content"] },
-  { group: "Application", items: ["TypeScript", "Next.js", "React", "Node"] },
-  { group: "Data", items: ["Postgres", "Reports", "Exports", "Background jobs"] },
-  { group: "Delivery", items: ["GitHub", "Preview deploys", "Monitoring", "Care windows"] },
+  { group: "Contracts", items: ["Solidity", "Foundry", "Rust", "Move", "Hardhat"] },
+  { group: "Product", items: ["Next.js", "TypeScript", "wagmi", "viem", "React Native"] },
+  { group: "Data", items: ["The Graph", "Custom indexers", "Oracles", "Keepers"] },
+  { group: "Accounts", items: ["Safe", "ERC-4337", "SIWE", "Passkeys"] },
 ];
 
 export const faqs = [
   {
     q: "What kind of company is Lotusbyte?",
-    a: "A product studio. We design and build custom software for companies that run real operations — property, care, logistics, wholesale, and field work.",
+    a: "A Web3 development and talent company. We build blockchain products for client companies, and we hire and manage the developers who do that work. The product belongs to the client. People on the project work through Lotusbyte.",
   },
   {
-    q: "Do you only take greenfield products?",
-    a: "No. Many projects replace a spreadsheet, a shared inbox, or a tool the team has outgrown. Some are new products. We say which it is in the plan.",
+    q: "Do you only write code, or do you also staff teams?",
+    a: "Both. Some clients need a scoped build. Some need a standing bench. Most need a first ship and then people who stay. Roles are posted under our name; after our hiring process you may interview with the client.",
   },
   {
     q: "Is Stratafi your product?",
-    a: "No. Stratafi is operations software we designed and built for a residential property group. It is an example of the work, not a Lotusbyte-owned company.",
+    a: "No. Stratafi is a client real estate platform we developed and delivered. It is an example of the work, not a Lotusbyte-owned company.",
   },
   {
-    q: "Who is on the team?",
-    a: "Designers and engineers employed by Lotusbyte. You work with the people who will build the product. We do not place contractors inside your company.",
+    q: "Which chains do you work on?",
+    a: "Ethereum, Solana, Polygon, Arbitrum, Base, Optimism, BNB Chain, and Avalanche. We pick the chain for the client’s product.",
   },
   {
-    q: "How do I start?",
-    a: "Send a brief on the contact page: what the team does, what is painful, and any date you cannot miss. We reply within two business days. An NDA is available before a detailed read.",
+    q: "How do I start a project?",
+    a: "Send a brief on the contact page: what you are building, the chain, and what already exists. We reply within two business days with whether we can staff it and a first step. An NDA is available before a detailed read.",
   },
   {
-    q: "How do I join Lotusbyte?",
-    a: "Apply on this site. We interview, and some roles include a short paid exercise. Offers come from Lotusbyte. You then work on client products as part of our studio.",
+    q: "How do developers join a client project?",
+    a: "Apply on this site, or a client can introduce you. We screen and interview. You may then do a final interview with the client. If both sides agree, you work through Lotusbyte on that product.",
   },
   {
-    q: "Who owns the software?",
-    a: "The client. Repositories, design files, and documentation transfer with the engagement.",
+    q: "Who owns the code?",
+    a: "The client. Repositories, keys, and documentation transfer with the engagement. Handoff is part of delivery.",
   },
   {
     q: "Do you take every brief?",
-    a: "No. We decline work outside the kinds of products we ship, and work we cannot staff in the time you need.",
+    a: "No. We refuse work we cannot staff or cannot secure — including unaudited upgrades on a deadline we cannot meet.",
   },
 ];
 

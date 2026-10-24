@@ -4,9 +4,9 @@ export default function NotFound() {
   return (
     <div className="mx-auto max-w-6xl px-5 py-28 text-center">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">404</p>
-      <h1 className="mt-3 font-display text-4xl md:text-6xl">This page is not here.</h1>
+      <h1 className="mt-3 font-display text-4xl md:text-6xl">This route is not on-chain.</h1>
       <p className="mx-auto mt-4 max-w-md text-muted">
-        That address does not match a page. Head back and pick a live one.
+        That page does not exist. Head back to the studio and pick a live path.
       </p>
       <Link
         href="/"

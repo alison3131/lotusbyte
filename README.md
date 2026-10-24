@@ -1,6 +1,6 @@
 # Lotusbyte
 
-Company website for **Lotusbyte**, a product studio, at [lotusbyte.org](https://lotusbyte.org).
+Company website for **Lotusbyte**, a Web3 development and talent company, at [lotusbyte.org](https://lotusbyte.org).
 
 ## Local
 

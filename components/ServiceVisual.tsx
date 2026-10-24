@@ -1,51 +1,57 @@
 import Image from "next/image";
 
 const visuals: Record<string, { photo: string; alt: string; kicker: string; title: string }> = {
-  "product-design": {
+  "smart-contracts": {
     photo: "/media/about.jpg",
-    alt: "A product design review",
-    kicker: "Research · Figma",
-    title: "Flows people can finish",
+    alt: "Engineer writing protocol code",
+    kicker: "Solidity · Rust · Move",
+    title: "Contracts, tests, upgrade path",
   },
-  "web-applications": {
-    photo: "/media/hero.jpg",
-    alt: "A custom web application in use",
-    kicker: "TypeScript · Next.js",
-    title: "The app the team opens",
-  },
-  "customer-portals": {
-    photo: "/media/northline.jpg",
-    alt: "A customer checking status",
-    kicker: "Accounts · status",
-    title: "Self-service instead of a call",
-  },
-  operations: {
-    photo: "/media/stratafi.jpg",
-    alt: "An operations desk",
-    kicker: "Work orders · records",
-    title: "One system for the day",
-  },
-  "data-reporting": {
-    photo: "/media/paperlane.jpg",
-    alt: "A reporting view",
-    kicker: "Dashboards · exports",
-    title: "Numbers the team trusts",
-  },
-  sites: {
+  dapps: {
     photo: "/media/careers.jpg",
-    alt: "A company site",
-    kicker: "Writing · identity",
-    title: "A public face that matches the product",
+    alt: "Wallet-connected product on a phone",
+    kicker: "Next.js · wagmi",
+    title: "Mint, swap, and dashboard UI",
+  },
+  defi: {
+    photo: "/media/hero.jpg",
+    alt: "Live markets on laptop, phone, and watch",
+    kicker: "AMMs · lending",
+    title: "Vaults and liquidity people can use",
+  },
+  "rwa-real-estate": {
+    photo: "/media/stratafi.jpg",
+    alt: "Tokenized residential property",
+    kicker: "Tokenization",
+    title: "On-chain property shares",
+  },
+  "nfts-gaming": {
+    photo: "/media/keel.jpg",
+    alt: "Players with in-game assets",
+    kicker: "ERC-721 · 1155",
+    title: "Inventory, mint, and royalties",
+  },
+  "wallets-identity": {
+    photo: "/media/marlow.jpg",
+    alt: "Passkey wallet across devices",
+    kicker: "AA · passkeys",
+    title: "Onboarding without a seed-phrase stall",
+  },
+  infra: {
+    photo: "/media/contact.jpg",
+    alt: "Chain infrastructure in production",
+    kicker: "Indexers · RPCs",
+    title: "Keep the product live",
   },
 };
 
 export function ServiceVisual({ slug, className = "aspect-[16/10]" }: { slug: string; className?: string }) {
-  const visual = visuals[slug] ?? visuals["product-design"];
+  const visual = visuals[slug] ?? visuals["smart-contracts"];
 
   return (
-    <div className={`relative min-w-0 overflow-hidden bg-raised ${className}`}>
+    <div className={`relative min-w-0 overflow-hidden bg-bg ${className}`}>
       <Image src={visual.photo} alt={visual.alt} fill className="object-cover" sizes="(min-width: 1024px) 50vw, 100vw" />
-      <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/45 to-bg/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/35 to-transparent" />
       <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
         <div className="rounded-xl border border-line bg-card/90 p-3 backdrop-blur-md sm:p-4">
           <p className="text-[10px] uppercase tracking-[0.16em] text-gold">{visual.kicker}</p>

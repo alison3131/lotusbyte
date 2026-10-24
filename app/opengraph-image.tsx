@@ -23,13 +23,13 @@ export default function OpenGraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>
-            Software for
+            Client products.
           </div>
           <div style={{ fontSize: 72, fontWeight: 700, color: "#1d4ed8", lineHeight: 1.05 }}>
-            real work.
+            Built and staffed.
           </div>
           <div style={{ marginTop: 28, fontSize: 28, color: "#5b6b7c" }}>
-            Design · build · care
+            Development · talent · client delivery
           </div>
         </div>
       </div>

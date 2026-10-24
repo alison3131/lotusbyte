@@ -32,7 +32,7 @@ export default function HomePage() {
     <>
       <section className="relative isolate overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={media.hero} alt="Lotusbyte studio" fill className="object-cover" sizes="100vw" priority />
+          <Image src={media.hero} alt="Lotusbyte engineering bench" fill className="object-cover" sizes="100vw" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/92 to-bg/72" />
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-bg/55" />
         </div>
@@ -263,7 +263,7 @@ export default function HomePage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {jobs
               .filter((job) =>
-                ["product-designer", "senior-product-engineer", "product-manager"].includes(job.slug),
+                ["web3-designer", "senior-blockchain-developer", "product-manager-web3"].includes(job.slug),
               )
               .map((job) => {
                 const pay = jobComp(job.salary);
