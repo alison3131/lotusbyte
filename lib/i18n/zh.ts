@@ -113,7 +113,6 @@ export const zh: Messages = {
     eyebrow: "案例",
     title: "我们交付过的客户产品。",
     lead: "来自 Lotusbyte 的客户产品——物业运营、诊所、货运、现场服务、出版与批发。",
-    allCaseStudies: "全部案例",
     clientNote: "这是客户产品。Lotusbyte 负责设计、构建并陪伴上线。软件归客户所有。",
     allCases: "← 全部案例",
     theBrief: "需求",
